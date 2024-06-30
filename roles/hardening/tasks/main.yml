@@ -37,6 +37,7 @@
     path: /etc/ssh/sshd_config
     line: '#UsePAM no'
     state: absent
+
 - name: hardening role | securing sshd config file | enforcing PAM authentication | step 2
   lineinfile:
     path: /etc/ssh/sshd_config
@@ -45,7 +46,7 @@
     state: present
   notify: Restart sshd
  
-  handlers:
+handlers:
   - name: Restart sshd
     service:
       name: sshd
