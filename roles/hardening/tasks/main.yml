@@ -46,7 +46,7 @@
     state: present
   notify: Restart sshd
  
-handlers:
+  handlers:
   - name: Restart sshd
     service:
       name: sshd
