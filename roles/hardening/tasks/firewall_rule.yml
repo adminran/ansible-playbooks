@@ -3,6 +3,7 @@
   service:
     name: firewalld
     state: started
+    enabled: yes 
 - name: hardening role | allowing webserver 
   firewalld:
     service: https
