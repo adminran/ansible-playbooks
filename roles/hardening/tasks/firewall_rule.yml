@@ -1,0 +1,11 @@
+---
+- name: hardening role | ensuring firewall service running 
+  service:
+    name: firewalld
+    state: started
+- name: hardening role | allowing webserver 
+  firewalld:
+    service: https
+    permanent: true
+    state: enabled
+  notify: restart firewall

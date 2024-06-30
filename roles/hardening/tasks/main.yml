@@ -57,3 +57,6 @@
       net.ipv6.conf.default.disable_ipv6 = 1
     marker: "# ANSIBLE managed block"
   notify: reload sysctl
+
+- name: hardening role | applying firewall rules and policies
+  include_tasks: firewall_rule.yml

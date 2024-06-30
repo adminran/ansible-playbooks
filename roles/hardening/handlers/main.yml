@@ -7,3 +7,8 @@
 
 - name: reload sysctl
   shell: sysctl -p
+
+- name: restart firewall
+  service:
+    name: firewalld
+    state: restarted
