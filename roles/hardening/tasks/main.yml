@@ -28,3 +28,14 @@
    path: /usr/local/test
    state: absent
   when: permissions.stat.exists
+
+- name: hardening role | securing sshd config file | enforcing strict mode
+  shell: sed -i 's/#StrictModes yes/StrictModes yes/g' /etc/ssh/sshd_config
+  notify: Restart sshd
+ 
+handlers:
+  - name: Restart sshd
+    service:
+      name: sshd
+      state: restarted
+  
