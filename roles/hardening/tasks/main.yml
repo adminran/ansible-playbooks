@@ -50,10 +50,10 @@
   shell: echo ALL >> /etc/cron.deny
 
 - name: hardening role | turning off ipv6
-  lineinfile:
+  blockinfile:
     path: /etc/sysctl.d/60-gce-network-security.conf
-    line:
-      - 'net.ipv6.conf.all.disable_ipv6 = 1'
-      - 'net.ipv6.conf.default.disable_ipv6 = 1'
-    state: present
+    block: |
+      net.ipv6.conf.all.disable_ipv6 = 1
+      net.ipv6.conf.default.disable_ipv6 = 1
+    marker: "# ANSIBLE managed block"
   notify: reload sysctl
