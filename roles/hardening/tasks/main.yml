@@ -22,9 +22,3 @@
   debug:
     msg: "Directory permissions of /usr/local/test are {{ permissions.stat.mode }}"
   when: permissions.stat.exists
-
-- name: hardening role | removing the test directory
-  file:
-   path: /usr/local/test
-   state: absent
-  when: permissions.stat.exists
