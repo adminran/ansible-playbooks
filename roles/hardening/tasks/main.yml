@@ -1,0 +1,24 @@
+---
+# tasks file for hardening
+- name: hardening role | setting up umask for the server
+  shell: umask
+  register: umask_output
+
+- name:  hardening role | displaying umask output
+  debug:
+    var: umask_output.stdout_lines
+
+- name: hardening role | creating a directory
+  file:
+   path: /usr/local/test
+   state: directory
+
+- name: hardening role | checking the directory permmissions
+  stat:
+    path: /usr/local/test
+  register: permissions
+
+- name: hardening role | Display directory permissions
+  debug:
+    msg: "Directory permissions of /usr/local/test are {{ permissions.stat.mode }}"
+  when: permissions.stat.exists
