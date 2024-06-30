@@ -31,7 +31,8 @@
 
 - name: hardening role | securing sshd config file | enforcing strict mode
   shell: sed -i 's/#StrictModes yes/StrictModes yes/g' /etc/ssh/sshd_config
-  notify: Restart sshd
+
+- name: hardening role | securing sshd config file | enforcing strict mode
  
   handlers:
   - name: Restart sshd
