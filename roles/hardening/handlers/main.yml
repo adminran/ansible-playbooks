@@ -4,3 +4,6 @@
   service:
     name: sshd
     state: restarted
+
+- name: reload sysctl
+  shell: sysctl -p
