@@ -18,7 +18,7 @@
   lineinfile:
     path: /etc/yum.repos.d/epel.repo
     insertafter: '^# gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-$rel'
-    line: 'excludepkgs=zabbix*'
+    line: 'exclude=zabbix*'
     state: present
 
 - name: zabbixs monitoring role | pre-installation steps | installing zabbix repo
