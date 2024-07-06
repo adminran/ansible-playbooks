@@ -1,7 +1,7 @@
 ---
 - name: zabbbix monitoring role | installation steps | install zabbix and its dependent packages
   shell:
-    cmd: dnf install {{ item }}
+    cmd: dnf install {{ item }} -y
   with_items:
     - zabbix-server-mysql
     - zabbix-web-mysql
