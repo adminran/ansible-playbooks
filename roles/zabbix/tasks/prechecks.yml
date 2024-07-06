@@ -11,7 +11,7 @@
   when: not repo_output.stat.exists
 
 - name: zabbing monitoring role | pre-installation steps | listing the enabled repo's
-  shell: sudo yum repo list
+  shell: sudo dnf repolist
   register: yum_repo_list_output
 
 - name: zabbing monitoring pre-installation steps | displaying the repolist
