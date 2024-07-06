@@ -1,7 +1,7 @@
 ---
 - name: zabbbix monitoring role | Mysql configuration | mysql server status check
   shell:
-    cmd: "rpm -qa | grep tyu"
+    cmd: "rpm -qa | grep zabbix-server-mysql"
   register: mysql_status
   ignore_errors: yes
 
