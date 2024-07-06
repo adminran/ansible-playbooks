@@ -1,11 +1,21 @@
 ---
-- name: zabbbix monitoring role | checking epel repo
+- name: zabbbix monitoring role | pre-installation steps | checking epel repo
   stat:
     path: /etc/yum.repos.d/epel.repo
   register: repo_output
 
-- name: zabbix monitoring role | installing epel repo
+- name: zabbix monitoring role | pre-installation steps | installing epel repo
   yum:
     name: epel-release
     state: present
   when: not repo_output.stat.exists
+
+- name: zabbing monitoring role | pre-installation steps | listing the enabled repo's
+  shell: sudo yum repo list
+  register: yum_repo_list_output
+
+- name: zabbing monitoring pre-installation steps | displaying the repolist
+  debug:
+    var: yum_repo_list_output.stdout_lines
+
+
