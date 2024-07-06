@@ -3,5 +3,5 @@
 - name: zabbix monitoring role | preinstallation steps
   include_tasks: prechecks.yml
 
-- name: zabbix monitoring role | installation steps
-  include_tasks: installation.yml
+#- name: zabbix monitoring role | installation steps
+#  include_tasks: installation.yml
