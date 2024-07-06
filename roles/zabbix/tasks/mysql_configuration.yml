@@ -20,24 +20,24 @@
     state: started
     enabled: yes
 - name: zabbbix monitoring role | Mysql configuration | creating zabbix db
-  mysql_db:
+  community.mysql.mysql_db:
     name: zabbix
     state: present
 
 - name: zabbbix monitoring role | Mysql configuration | creating zabbix user
-  mysql_user:
+  community.mysql.mysql_user:
     name: zabbix
     password: admin@123
     priv: '*.*:ALL'
     state: present
 
 - name: zabbbix monitoring role | Mysql configuration | flush priv
-  mysql_db:
+  community.mysql.mysql_db:
     name: '*.*'
     state: flush_privs
 
 - name: zabbbix monitoring role | Mysql configuration | set character set and collation
-  mysqldb:
+  community.mysql.mysql_db:
     login_user: root
     login_password: admin123
     login_host: localhost
@@ -45,7 +45,5 @@
     name: zabbix
     state: query
     query: "ALTER DATABASE {{ name }} CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;"
-
-
 
 
