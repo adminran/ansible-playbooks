@@ -28,3 +28,15 @@
     - rpm -Uvh https://repo.zabbix.com/zabbix/7.0/centos/9/x86_64/zabbix-release-7.0-3.el9.noarch.rpm
     - dnf clean all
   ignore_errors: true
+
+- name: zabbixs monitoring role | pre-installation steps | installing pip
+  pip:
+    name: pip
+    executable: pip3
+    state: present
+
+- name: zabbixs monitoring role | pre-installation steps | installing pymysql
+  pip:
+    name: mysqlclient
+    executable: pip3
+    state: present
