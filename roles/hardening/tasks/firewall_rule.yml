@@ -1,12 +1,17 @@
 ---
-- name: hardening role | ensuring firewall service running 
+- name: firewall role | ensuring firewall service running 
   service:
     name: firewalld
     state: started
     enabled: yes 
+
+- name: firewall role | setting default zone as public
+  shell: firewall-cmd --set-default-zone=public
+
 - name: hardening role | allowing webserver 
   firewalld:
     service: https
+    zone: public
     permanent: true
     state: enabled
   notify: restart firewall
