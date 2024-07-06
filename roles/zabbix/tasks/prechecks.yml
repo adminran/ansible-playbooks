@@ -14,8 +14,4 @@
   shell: sudo dnf repolist
   register: yum_repo_list_output
 
-- name: zabbing monitoring pre-installation steps | displaying the repolist
-  debug:
-    var: yum_repo_list_output.stdout_lines
-
 
