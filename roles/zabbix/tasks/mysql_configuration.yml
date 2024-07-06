@@ -44,7 +44,7 @@
     login_unix_socket: /var/run/mysqld/mysqld.sock
     name: zabbix
     state: query
-     query: "ALTER DATABASE {{ name }} CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;"
+    query: "ALTER DATABASE {{ name }} CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;"
 
 
 
