@@ -1,2 +1,4 @@
 ---
 # tasks file for zabbix
+- name: zabbix monitoring role | preinstallation steps
+  include_tasks: prechecks.yml
