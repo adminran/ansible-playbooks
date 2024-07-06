@@ -10,14 +10,20 @@
     state: present
   when: not repo_output.stat.exists
 
-- name: zabbing monitoring role | pre-installation steps | listing the enabled repo's
+- name: zabbix monitoring role | pre-installation steps | listing the enabled repo's
   shell: sudo dnf repolist
   register: yum_repo_list_output
 
-- name: zabbing monitoring role | pre-installation steps | excluding the zabbix package in epel-repo
+- name: zabbixs monitoring role | pre-installation steps | excluding the zabbix package in epel-repo
   lineinfile:
     path: /etc/yum.repos.d/epel.repo
     line: 'excludepkgs=zabbix*'
     insertafter: EOF
     state: present
 
+- name: zabbixs monitoring role | pre-installation steps | installing zabbix repo
+  shell:
+    cmd: "{{ item }}"
+  loop:
+    - rpm -Uvh https://repo.zabbix.com/zabbix/7.0/centos/9/x86_64/zabbix-release-7.0-3.el9.noarch.rpm
+    - dnf clean all
