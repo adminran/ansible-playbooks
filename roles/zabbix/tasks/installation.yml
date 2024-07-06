@@ -1,0 +1,11 @@
+---
+- name: zabbbix monitoring role | installation steps | install zabbix and its dependent packages
+  shell:
+    cmd: dnf install {{ item }}
+  with_items:
+    - zabbix-server-mysql
+    - zabbix-web-mysql
+    - zabbix-apache-conf
+    - zabbix-sql-scripts
+    - zabbix-selinux-policy
+    - zabbix-agent
