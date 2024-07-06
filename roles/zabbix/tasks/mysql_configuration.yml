@@ -5,6 +5,21 @@
   register: mysql_status
   ignore_errors: yes
 
-- name: zabbbix monitoring role | Mysql configuration | mysql server status display
+- name: zabbbix monitoring role | Mysql configuration | zabbix mysql server status display
   debug:
     msg: " Zabbix mysql is {{ 'installed' if mysql_status.rc == 0 else 'not installed' }}"
+
+- name: zabbbix monitoring role | Mysql configuration | Installing mysql server 
+  dnf:
+    name: mysql-server
+    state: present
+
+- name: zabbbix monitoring role | Mysql configuration | starting mysql server
+  service:
+    name: mysqld
+    state: started
+    enabled: yes
+#- name: zabbbix monitoring role | Mysql configuration | creating zabbix db
+
+
+
