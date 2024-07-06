@@ -1,0 +1,10 @@
+---
+- name: zabbbix monitoring role | Mysql configuration | mysql server status check
+  shell:
+    cmd: "rpm -qa | grep zabbix-server-mysql"
+  register: mysql_status
+  ignore_errors: yes
+
+- name: zabbbix monitoring role | Mysql configuration | mysql server status display
+  debug:
+    msg: " Zabbix mysql is {{ 'installed' if mysql_status.rc == 0 else 'not installed' }}"
