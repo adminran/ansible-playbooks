@@ -1,11 +1,11 @@
 ---
-name: zabbbix monitoring role | checking epel repo
-stat:
-  path: /etc/yum.repos.d/epel.repo
-register: repo_output
+- name: zabbbix monitoring role | checking epel repo
+  stat:
+    path: /etc/yum.repos.d/epel.repo
+  register: repo_output
 
-name: zabbix monitoring role | installing epel repo
-yum:
-  name: epel-release
-  state: present
-when: repo_output.rc != 0
+- name: zabbix monitoring role | installing epel repo
+  yum:
+    name: epel-release
+    state: present
+  when: repo_output.rc != 0
