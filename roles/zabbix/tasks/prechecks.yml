@@ -16,7 +16,7 @@
 
 - name: zabbing monitoring role | pre-installation steps | excluding the zabbix package in epel-repo
   lineinfile:
-    path: /etc/yum.repos.d/epel-repo
+    path: /etc/yum.repos.d/epel.repo
     line: 'excludepkgs=zabbix*'
     insertafter: EOF
     state: present
