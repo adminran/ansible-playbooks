@@ -21,7 +21,7 @@
     line: 'exclude=zabbix*'
     state: present
 
-- name: zabbixs monitoring role | pre-installation steps | installing zabbix repo
+- name: zabbix monitoring role | pre-installation steps | installing zabbix repo
   shell:
     cmd: "{{ item }}"
   loop:
@@ -29,14 +29,5 @@
     - dnf clean all
   ignore_errors: true
 
-- name: zabbixs monitoring role | pre-installation steps | installing pip
-  pip:
-    name: pip
-    executable: pip3
-    state: present
-
-- name: zabbixs monitoring role | pre-installation steps | installing pymysql
-  pip:
-    name: mysqlclient
-    executable: pip3
-    state: present
+- name: zabbix monitoring role | pre-installation steps | installing python stuffs
+  include_tasks: python_installation.yml
