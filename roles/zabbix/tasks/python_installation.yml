@@ -5,7 +5,7 @@
 
 - name: zabbix monitoring role | pre-installation steps | Install mariadb development libraries
   yum:
-    name: mysql-community-devel
+    name: mariadb
     state: present
     disable_gpg_check: yes
 
