@@ -1,7 +1,7 @@
 ---
-- name: zabbix monitoring role | pre-installation steps | Install MySQL development libraries
+- name: zabbix monitoring role | pre-installation steps | Install mariadb development libraries
   yum:
-    name: mysql-devel
+    name: mariadb-devel
     state: present
 
 - name: zabbix monitoring role | pre-installation steps | installing python packages
