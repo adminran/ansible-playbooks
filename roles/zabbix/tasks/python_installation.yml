@@ -1,14 +1,7 @@
 ---
-- name: zabbix monitoring role | pre-installation steps | installing pip
-  pip:
-    name: pip
-    executable: pip3
-    state: present
-
-- name: zabbix monitoring role | pre-installation steps | installing pymysql
-  pip:
-    name: mysqlclient
-    executable: pip3
+- name: zabbix monitoring role | pre-installation steps | Install MySQL development libraries
+  yum:
+    name: mysql-devel
     state: present
 
 - name: zabbix monitoring role | pre-installation steps | installing python packages
@@ -22,3 +15,15 @@
     - gcc
     - openssl-devel
     - libffi-devel
+
+- name: zabbix monitoring role | pre-installation steps | installing pip
+  pip:
+    name: pip
+    executable: pip3
+    state: present
+
+- name: zabbix monitoring role | pre-installation steps | installing pymysql
+  pip:
+    name: mysqlclient
+    executable: pip3
+    state: present
