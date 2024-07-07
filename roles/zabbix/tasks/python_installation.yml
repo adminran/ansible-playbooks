@@ -1,8 +1,14 @@
 ---
+- name: zabbix monitoring role | pre-installation steps | disable module filtering
+  shell:
+    cmd: dnf module disable mariadb
+    ignore_errors: yes
+
 - name: zabbix monitoring role | pre-installation steps | Install mariadb development libraries
   yum:
     name: mariadb-devel
     state: present
+    disable_gpg_check: yes
 
 - name: zabbix monitoring role | pre-installation steps | installing python packages
   yum:
