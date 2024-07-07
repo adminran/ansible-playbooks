@@ -2,7 +2,13 @@
 - name: zabbix monitoring role | pre-installation steps | disable module filtering
   shell:
     cmd: dnf module disable mariadb
-    ignore_errors: yes
+    register: module_filter_output
+    check_rc: yes
+
+- name: zabbix monitoring role | pre-installation steps | fail the task if disabling failed
+  fail:
+    msg: "Disabling module filtering"
+  when: module_filter_output.rc != 0
 
 - name: zabbix monitoring role | pre-installation steps | Install mariadb development libraries
   yum:
