@@ -1,9 +1,5 @@
 ---
 # tasks file for openvas
-- name: vulnerability assessment | open vas role | packages update
-  dnf:
-    name: '*'
-    state: latest
 - name: vulnerability assessment | open vas role | wget bzip2 installation
   dnf:
     name: "{{ item }}"
