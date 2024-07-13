@@ -1,2 +1,58 @@
 ---
 # tasks file for openvas
+- name: vulnerability assessment | open vas role | packages update
+  dnf:
+    name: '*'
+    state: latest
+- name: vulnerability assessment | open vas role | wget bzip2 installation
+  dnf:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - 'wget'
+    - 'bzip2'
+- name: vulnerability assessment | open vas role | openVAS dependencies
+  dnf:
+    name: "{{ item }}"
+  loop:
+    - 'gcc'
+    - 'glibc'
+    - 'glib2-devel'
+    - 'gnutls-devel'
+    - 'libpcap-devel'
+    - 'libssh-devel'
+    - 'libgcrypt-devel'
+    - 'libgpg-error-devel'
+    - 'libgnutls-devel'
+    - 'nettle-devel'
+    - 'openvas'
+    - 'openvas-cli'
+    - 'openvas-manager'
+    - 'openvas-scanner'
+    - 'sqlite-devel'
+    - 'uuid-devel'
+    - 'wget'
+
+- name: vulnerability assessment | open vas role | allowing firewall
+  firewalld:
+    port:
+      - 9392/tcp
+      - 9390/tcp
+    permanent: yes
+    state: enabled
+
+- name: vulnerability assessment | open vas role | allowing firewall
+  firewalld:
+    state: reload
+
+- name: vulnerability assessment | open vas role | Initialise OpenVas setup
+  command: openvas-setup
+  args:
+    creates: /etc/openvas/users/admin
+  
+- name: vulnerability assessment | open vas role | start the services
+  systemd:
+    name: 'openvas-*'
+    state: started
+    enabled: yes
+
