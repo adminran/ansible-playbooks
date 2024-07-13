@@ -1,8 +1,8 @@
 ---
 - name: vm server hardening
   hosts: localhost
-  vars:
-  #ansible_python_interpreter: /usr/bin/python3
-  roles:
-   - hardening
-   - zabbix
+  tasks:
+    - name: calling  hardening role
+      include_role:
+        name: hardening
+      when: include_hardening is defined
