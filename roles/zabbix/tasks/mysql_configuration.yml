@@ -32,9 +32,8 @@
     state: present
 
 - name: zabbbix monitoring role | Mysql configuration | flush priv
-  community.mysql.mysql_db:
-    name: '*.*'
-    state: flush
+    shell: mysql -u root -e "FLUSH PRIVILEGES;"
+    become: true
 
 - name: zabbbix monitoring role | Mysql configuration | set character set and collation
   community.mysql.mysql_db:
