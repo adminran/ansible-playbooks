@@ -19,15 +19,11 @@
     - 'libssh-devel'
     - 'libgcrypt-devel'
     - 'libgpg-error-devel'
-    - 'libgnutls-devel'
     - 'nettle-devel'
-    - 'openvas'
+    - 'greenbone-security-assistant'
     - 'openvas-cli'
-    - 'openvas-manager'
-    - 'openvas-scanner'
-    - 'sqlite-devel'
-    - 'uuid-devel'
-    - 'wget'
+    - 'openvas-smb'
+    - 'sqlite'
 
 - name: vulnerability assessment | open vas role | allowing firewall
   firewalld:
