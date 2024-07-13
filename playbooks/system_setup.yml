@@ -7,4 +7,4 @@
     - name: calling  hardening role
       include_role:
         name: hardening
-      when: include_hardening is defined
+      when: include_hardening
