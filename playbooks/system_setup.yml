@@ -1,6 +1,7 @@
 ---
 - name: vm server hardening
   hosts: localhost
+  vars:
   include_hardening: true
   tasks:
     - name: calling  hardening role
