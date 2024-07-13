@@ -5,4 +5,4 @@
     - name: calling  hardening role
       include_role:
         name: hardening
-      when: include_hardening
+      when: include_hardening | default(false)
