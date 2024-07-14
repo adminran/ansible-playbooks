@@ -11,7 +11,7 @@
     state: present
   loop:
     - 'glibc'
-- name:  vulnerability assessment | Nessus scan | key installation
+- name:  vulnerability assessment | Nessus scan | key installation 
   shell:
     cmd: rpm --import /usr/local/tenable.gpg
 
@@ -20,3 +20,9 @@
     name: "{{ package }}"
     state: present
     update_cache: yes
+
+- name: vulnerability assessment | Nessus scan | starting Nessus service
+  systemd:
+    name: nessusd
+    state: started
+    enabled: yes
