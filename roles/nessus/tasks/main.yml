@@ -5,6 +5,13 @@
     url: "{{ url }}"
     dest: "{{ package }}"
     mode: 644
+- name: vulnerability assessment | Nessus scan | Installing dependencies
+  yum:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - 'glibc'
+
 - name: vulnerability assessment | Nessus scan | Installing Nessus
   yum:
     name: "{{ package }}"
