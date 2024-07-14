@@ -11,6 +11,9 @@
     state: present
   loop:
     - 'glibc'
+- name:  vulnerability assessment | Nessus scan | key installation
+  shell:
+    cmd: rpm --import /usr/local/tenable.gpg
 
 - name: vulnerability assessment | Nessus scan | Installing Nessus
   yum:
