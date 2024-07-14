@@ -1,8 +1,12 @@
 ---
 # tasks file for nessus
-- name: vulnerability assessment | Nessus scan | Downloading nessus
+- name: vulnerability assessment | Nessus scan | Downloading Nessus
   get_url:
     url: "{{ url }}"
     dest: "{{ package }}"
     mode: 644
-  
+- name: vulnerability assessment | Nessus scan | Installing Nessus
+  yum:
+    name: "{{ package }}"
+    state: present
+    update_cache: yes
