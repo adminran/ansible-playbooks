@@ -13,8 +13,3 @@
       include_role:
         name: zabbix
       when: include_zabbix | default(false)
-
-    - name: openVAS
-      include_role:
-        name: openvas
-      when: include_openvas | default(false)
