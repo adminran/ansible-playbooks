@@ -2,9 +2,9 @@
 # tasks file for filesystem
 
 - name: Filesystem creation | Gather system facts
-    setup:
-      gather_subset:
-        - hardware
+  setup:
+    gather_subset:
+      - hardware
 
 - name: Filter and display devices
   debug:
