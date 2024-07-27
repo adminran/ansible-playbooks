@@ -4,7 +4,13 @@
   setup:
     gather_subset:
       - hardware
+  register: current_facts
 
-- name: Filter and display devices
+- name: Filesystem creation | Filter and display devices
   debug:
     msg: "{{ ansible_devices | dict2items | selectattr('value.partitions', 'defined') | map(attribute='key') | list }}"
+
+- name: Filesystem creation | Save current disk information
+  copy:
+    content: "{{ current_facts.ansible_facts.devices.keys() | list | join('\n') }}"
+    dest: /tmp/current_disk_info.txt
