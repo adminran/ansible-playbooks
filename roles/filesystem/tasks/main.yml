@@ -1,6 +1,6 @@
 ---
 # tasks file for filesystem
-- name: Filesystem creation | Gather system facts
+- name: Filesystem creation | collecting system informations
   setup:
     gather_subset:
       - hardware
