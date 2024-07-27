@@ -2,6 +2,6 @@
 - name: vm server hardening
   hosts: localhost
   tasks:
-    - name: include nessus role
+    - name: include filesystem role
       include_role: 
-        name: nessus
+        name: filesystem
