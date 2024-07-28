@@ -19,7 +19,7 @@
   debug:
     msg: |
       {% for device, details in current_facts.ansible_facts.ansible_devices.items() %}
-      Device: {{ device }}
+      Device: {{ ansible_device }}
       Partitions:
       {% for partition in details.partitions | default([]) %}
         - {{ partition.device }}: {{ partition.size }} bytes
