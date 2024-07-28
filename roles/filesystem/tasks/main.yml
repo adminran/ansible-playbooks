@@ -15,7 +15,7 @@
     content: "{{ current_facts.ansible_facts.ansible_devices.keys() | list | join('\n') }}"
     dest: /tmp/current_disk_info.txt
 
-- name: List all partitions
+- name: Filesystem creation | Listing partitions
   debug:
     msg: |
       {% for device, details in ansible_facts.ansible_devices.items() %}
