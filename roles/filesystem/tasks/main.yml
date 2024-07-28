@@ -21,4 +21,4 @@
 
 - name: Filesystem creation | Save current disk information
   debug:
-    msg: "{{ ansible_facts.ansible_devices }}"
+    msg: "{{ ansible_facts.devices }}"
