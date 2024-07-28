@@ -18,7 +18,7 @@
 - name: Filesystem creation | Listing partitions
   debug:
     msg: |
-      {% for device, details in ansible_facts.ansible_devices.items() %}
+      {% for device, details in current_facts.ansible_facts.ansible_devices.items() %}
       Device: {{ device }}
       Partitions:
       {% for partition in details.partitions | default([]) %}
