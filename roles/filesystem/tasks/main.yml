@@ -26,7 +26,7 @@
 - name: Show partitions
   debug:
     msg: |
-      {% for device, details in ansible_facts.ansible_devices.items() %}
+      {% for device, details in ansible_facts.devices.items() %}
       Device: {{ device }}
       {% for partition in details.partitions | default([]) %}
         - Partition: {{ partition.device }}
