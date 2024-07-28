@@ -26,13 +26,17 @@
 - name: Show partitions
   debug:
     msg: |
-      {% for device, details in ansible_facts.ansible_devices.items() %}
-      Device: {{ device }}
-      {% if details.partitions %}
-        {% for partition_key, partition_details in details.partitions.items() %}
-          - Partition: {{ partition_details.device }}
+      {% if ansible_facts.devices %}
+       {% for device, details in ansible_facts.ansible_devices.items() %}
+        Device: {{ device }}
+        {% if details.partitions %}
+          {% for partition_key, partition_details in details.partitions.items() %}
+            - Partition: {{ partition_details.device }}
+          {% endfor %}
+        {% else %}
+          No partitions found for this device.
+          {% endif %}
         {% endfor %}
       {% else %}
-          No partitions found for this device.
+         No device information available.
       {% endif %}
-      {% endfor %}
