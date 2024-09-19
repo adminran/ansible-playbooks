@@ -13,4 +13,4 @@
 - name: Filesystem creation | Save current disk information
   copy:
     content: "{{ current_facts.ansible_facts.ansible_devices.keys() | list | join('\n') }}"
-    dest: /tmp/current_disk_info.txt
+    dest: /tmp/existing_disks.txt
